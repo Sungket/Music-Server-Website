@@ -1,3 +1,8 @@
+<?php
+  session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,9 +26,16 @@
           <ul class="list-group">
             <li class="list-group-item">About</li>
             <li class="list-group-item">Contact</li>
-            <li class="list-group-item">
-              <a href="php/admin.php">Admin</a>
-            </li>
+            <?php
+              if (isset($_SESSION["admin"])) {
+                echo"<li class='list-group-item'>
+                <a href='php/logout.php'>Logout</a></li>";
+              } else {
+                echo "<li class='list-group-item'>
+                <a href='php/admin.php'>Admin</a></li>";
+              }
+            ?>
+
           </ul>
         </div>
         <div class="col-6">

@@ -36,7 +36,7 @@
     if (mysqli_connect_errno()) {
         mysqli_close($conn);
 
-        exit;
+        exit();
     }
 
     if (isset($_POST['login'])) {
@@ -53,13 +53,14 @@
 
         $result = $query->get_result(); //result is an object, it cannot be true or false
 
+        if ($result->num_rows === 0) {
+            echo "Wrong password";
+            exit();
+        } else {
+            session_start();
+            $_SESSION["admin"] = $username;
+            header('Location: ../index.php');
+            exit();
+        }
     } 
-
-    if ($result->num_rows === 0) {
-        echo "Wrong password";
-    }
-
-
-    // var_dump($result);
-    
 ?>
