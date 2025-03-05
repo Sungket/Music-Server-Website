@@ -1,6 +1,6 @@
 <?php
 
-require("test.php");
+require("ll.php");
 require("iQueue.php");
 
 class AgentQueue implements Queue {
@@ -46,11 +46,11 @@ class AgentQueue implements Queue {
 
 try {
     $agents = new AgentQueue(10);
-    $agents->enqueue("Fred");
-    $agents->enqueue("John");
-    $agents->enqueue("Keith");
-    $agents->enqueue("Adiyan");
-    $agents->enqueue("Mikhael");
+    $agents->enqueue("Fred", 1);
+    $agents->enqueue("John", 2);
+    $agents->enqueue("Keith", 3);
+    $agents->enqueue("Adiyan", 4);
+    $agents->enqueue("Mikhael", 2);
     echo $agents->dequeue() . "<br>";
     echo $agents->dequeue() . "<br>";
     echo $agents->peek() . "<br>";

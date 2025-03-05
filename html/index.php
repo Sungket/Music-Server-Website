@@ -30,6 +30,8 @@
               if (isset($_SESSION["admin"])) {
                 echo"<li class='list-group-item'>
                 <a href='php/logout.php'>Logout</a></li>";
+                echo"<li class='list-group-item'>
+                <a href='php/upload.php'>Upload</a></li>";
               } else {
                 echo "<li class='list-group-item'>
                 <a href='php/admin.php'>Admin</a></li>";
@@ -49,6 +51,20 @@
             </div>
           </div>
         </div>
+        <?php
+          if (isset($_SESSION["admin"])) {
+            echo"
+            <div class='card' style='width: 18rem;'>
+              <img class='card-img-top' src='.../100px180/' alt='Card image cap'>
+              <div class='card-body'>
+                <h5 class='card-title'>Track title</h5>
+                <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
+                <a href='#' class='btn btn-primary'>Select</a>
+              </div>
+            </div>
+            ";
+          }
+        ?>
         <div class="col-3">
           <p>Media Player</p>
           <div class="btn-group" role="group" aria-label="Basic example">
@@ -66,5 +82,3 @@
   </body>
 
 </html>
-
-// adding a random comment
