@@ -31,7 +31,7 @@
                 echo"<li class='list-group-item'>
                 <a href='php/logout.php'>Logout</a></li>";
                 echo"<li class='list-group-item'>
-                <a href='php/upload.php'>Upload</a></li>";
+                <a href='upload.html'>Upload</a></li>";
               } else {
                 echo "<li class='list-group-item'>
                 <a href='php/admin.php'>Admin</a></li>";
