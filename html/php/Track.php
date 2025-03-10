@@ -1,15 +1,12 @@
 <?php
 
 class Track {
-    private trackTitle;
-    private length;
-    private picture;
-    private genre;
 
-    public function __construct()
-    {
-        
-    }
+    public function __construct(private string $trackTitle = "Track",
+        private float $length = 0,
+        private $picture = NULL,
+        private ?string $genre = NULL)
+    {}
 
     public function getTitle() : string {
         return $this->trackTitle;
