@@ -47,6 +47,39 @@ class Node {
         else
             return NULL;
     }
+
+    public function delete() {
+        $node = $this;
+        if (!$node->left && !$node->right) {
+            if ($node->parent->left === $node) {
+                $node->parent->left === NULL;
+            } else {
+                $node->parent->right === NULL;
+            }
+        } elseif ($node->left && $node->right) {
+            $successor = $node->successor();
+            $node->data = $successor->data;
+            $successor->delete();
+        } elseif ($node->left) {
+            if ($node->parent->left = $node) {
+                $node->parent->left = $node->left;
+                $node->left->parent = $node->parent->left;
+            } else {
+                $node->parent->right = $node->left;
+                $node->left->parent = $node->parent->right;
+            }
+            $node->left = NULL;  
+        } elseif ($node->right) {
+            if ($node->parent->left === $node) {
+                $node->parent->left = $node->right;
+                $node->right->parent = $node->parent->left;
+            } else {
+                $node->parent->right = $node->right;
+                $node->right->parent = $node->parent->right;
+            }
+            $node->right = NULL;
+        }
+    }
 }
 
 class BST {
@@ -75,7 +108,7 @@ class BST {
                 if ($node->right) {
                     $node = $node->right;
                 } else {
-                    $node->right = new Node($data);
+                    $node->right = new Node($data, $node);
                     $node = $node->right;
                     break;
                 }
@@ -83,7 +116,7 @@ class BST {
                 if($node->left) {
                     $node = $node->left;
                 } else {
-                    $node->left = new Node($data);
+                    $node->left = new Node($data, $node);
                     $node = $node->left;
                     break;
                 }
@@ -94,13 +127,49 @@ class BST {
         return $node;
     }
 
-    public function traverse(Node $node) {
+    public function remove(int $data) {
+        $node = $this->search($data);
+        if ($node) $node->delete();
+    }
+
+    public function traverse(Node $node, string $type = "in-order") {
+
+        switch($type) {
+            case "in-order":
+                $this->inOrder($node);
+            break;
+
+            case "pre-order":
+                $this->preOrder($node);
+            break;
+
+            case "post-order":
+                $this->postOrder($node);
+            break;
+        }
+    }
+
+    public function preOrder(Node $node) {
         if ($node) {
-            if ($node->left)
-                $this->traverse($node->left);
-                echo $node->data . "<br>";
-            if ($node->right)
-                $this->traverse($node->right);
+            echo $node->data . " ";
+            if ($node->left) $this->traverse($node->left);
+            if ($node->right) $this->traverse($node->right);
+        }
+    }
+
+    public function inOrder(Node $node) {
+        if ($node) {
+            if ($node->left) $this->traverse($node->left);
+            echo $node->data . " ";
+            if ($node->right) $this->traverse($node->right);
+        }
+    }
+
+    public function postOrder(Node $node) {
+        if ($node) {
+            if ($node->left) $this->traverse($node->left);
+            if ($node->right) $this->traverse($node->right);
+            echo $node->data . " ";
         }
     }
 
@@ -133,8 +202,13 @@ $tree->insert(8);
 $tree->insert(15);
 $tree->insert(13);
 $tree->insert(36);
+$tree->remove(15);
 
-$tree->traverse($tree->root);
+$tree->traverse($tree->root, 'pre-order');
+echo "\n";
+$tree->traverse($tree->root, 'in-order');
+echo "\n";
+$tree->traverse($tree->root, 'post-order');
 
 echo $tree->search(14) ? "Found" : "Not Found";
 echo "<br>";
