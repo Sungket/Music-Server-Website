@@ -23,4 +23,6 @@ class Track {
     public function getGenre() : string {
         return $this->genre;
     }
+
+    
 }
