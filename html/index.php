@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
+    <script src="js/jquery-3.7.1.min.js"></script>
+
     <title>Raj's Music App</title>
   </head>
   <body>
