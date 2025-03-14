@@ -1,19 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <title>Upload Page</title>
-        <link rel="stylesheet" href="css/style.css"/>
-    </head>
-    <h1>Upload your song</h1>
-    <body>
-        <form method="post" action="upload.php" enctype="multipart/form-data">
-            <input type="file" id="file" name="file"><br>
-            <button type="submit" name="submit">Upload</button>
-        </form>
-    </body>
-
-</html> -->
-
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1); // set second param to zero once development finished

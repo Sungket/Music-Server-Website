@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 
     <title>Raj's Music App</title>
   </head>
