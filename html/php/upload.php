@@ -3,8 +3,46 @@
     ini_set('display_errors', 1); // set second param to zero once development finished
 
     if (isset($_POST['submit'])) {
+        //Get the submitted form data
+        $trackName = $_POST['title'];
+        $genre = $_POST['genre'];
+        $image = $_FILES['image'];
         $file = $_FILES['file'];
-        print_r($file);
+
+        require_once 'Track.php';
+
+        //create a new Track object
+        // $track = new Track($trackName, $image, $genre);
+
+        $imgName = $_FILES['image']['name'];
+        $imgTmpName = $_FILES['image']['tmp_name'];
+        $imgSize = $_FILES['image']['size'];
+        $imgError = $_FILES['image']['error'];
+        $imgType = $_FILES['image']['type'];
+
+        $imgExt = explode('.', $imgName);
+        $imgActualExt = strtolower(end($imgExt));
+
+        $imgAllowed = array('jpg', 'jpeg', 'png', 'gif', 'tiff');
+
+        if (in_array($imgActualExt, $imgAllowed)) {
+            if ($imgError === 0) {
+                if ($imgSize < 5000000) {
+                    $imgNameNew = uniqid('', true) . "." . $imgActualExt;
+                    $imgDestination = '../uploads/' . $imgNameNew;
+                    move_uploaded_file($imgTmpName, $imgDestination);
+                    header("Location: ../index.php?uploadsuccess");
+                } else {
+                    echo "File is too large";
+                }
+            } else {
+                echo "There was an error uploading your image";
+            }
+        } else {
+            echo "Can only upload image format";
+        }
+
+
 
         $fileName = $_FILES['file']['name'];
         $fileTmpName = $_FILES['file']['tmp_name'];
@@ -34,6 +72,6 @@
             echo "Can only upload .mp3 format";
         }
     } else {
-        echo "something wrong";
+        echo "something went wrong";
     }
 ?>
