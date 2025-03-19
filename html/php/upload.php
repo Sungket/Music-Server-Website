@@ -2,18 +2,19 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1); // set second param to zero once development finished
 
+    require('Track.php');
+
     if (isset($_POST['submit'])) {
         //Get the submitted form data
         $trackName = $_POST['title'];
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
-        $file = $_FILES['file'];
-
-        require_once 'Track.php';
+        $file = $_FILES['file']; 
 
         //create a new Track object
-        // $track = new Track($trackName, $image, $genre);
+        $track = new Track(trackTitle:$trackName, picture:$image, genre:$genre);
 
+        //Get the data from the image file
         $imgName = $_FILES['image']['name'];
         $imgTmpName = $_FILES['image']['tmp_name'];
         $imgSize = $_FILES['image']['size'];
