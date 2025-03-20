@@ -40,3 +40,41 @@ public function siftUp() {
         $tmp = intval($tmpPos / 2);
     }
 }
+
+public function swap(int $a, int $b) {
+    $tmp = $this->heap[$a];
+    $this->heap[$a] = $this->heap[$b];
+    $this->heap[$b] = $tmp;
+}
+
+public function extractMin() {
+    $min = $this->heap[1];
+    $this->heap[1] = $this->heap[$this->count - 1];
+    $this->heap[--$this->count] = 0;
+    $this->siftDown[1];
+    return $min;
+}
+
+public function siftDown(int $k) {
+    $smallest = $k;
+    $left = 2 * $k;
+    $right = 2 * $k + 1;
+
+    if ($left < $this->count && $this->heap[$smallest] > $this->heap[$left]) {
+        $smallest = $left;
+    }
+
+    if ($right < $this->count && $this->heap[$smallest] > $this->heap[$right]) {
+        $smallest = $right;
+    }
+
+    if ($smallest != $k) {
+        $this->swap($k, $smallest);
+        $this->siftDown($smallest);
+    }
+}
+
+public function display() {
+    echo implode("\t", array_slice($this->heap, 1)) . "\n";
+}
+
