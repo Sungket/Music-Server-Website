@@ -32,8 +32,9 @@ class Track {
     public function setTitle($trackTitle) : void {
         if (isset($trackTitle)) {
             $pattern = "/^[a-z0-9 .\-]+$/i";
+            //ensure that the track title is only in allowed characters
             if (preg_match($pattern, $trackTitle)) {
-
+                $this->trackTitle = $trackTitle;
             }
         }
     }
