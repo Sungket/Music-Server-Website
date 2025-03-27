@@ -14,6 +14,9 @@
         //create a new Track object
         $track = new Track(trackTitle:$trackName, picture:$image, genre:$genre);
 
+        //run the query to save the track in the database
+        $stmt = $pdo->query('INSERT INTO tracks (title, genre, filepath')
+
         //Get the data from the image file
         $imgName = $_FILES['image']['name'];
         $imgTmpName = $_FILES['image']['tmp_name'];
