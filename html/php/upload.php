@@ -1,18 +1,20 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1); // set second param to zero once development finished
-
+    
     require('config.php');
+
 
     class TestUpload extends Dbh{
         //run the query to save the track in the database
-        public function saveToDb() {
-            
+        public function saveToDb($trackName, $length, $genre, $filepath) {
+            // $stmt = $pdo->prepare('INSERT INTO tracks (title, genre) VALUES (?, ?)');
+            // $stmt->execute([$trackName, $genre]);
+            //Use prepared statements to prevent SQL injection
+            $stmt = $this->connect()->prepare('INSERT INTO tracks (title, length, genre, filepath) 
+            VALUES (?, ?, ?, ?)');
+            $stmt->execute([$trackName, $length, $genre, $filepath]);
         }
-
-        $stmt = $pdo->prepare('INSERT INTO tracks (title, genre)
-            VALUES (?, ?)');
-        $stmt->execute([$trackName, $genre]);
     }
 
     if (isset($_POST['submit'])) {
@@ -21,6 +23,10 @@
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
         $file = $_FILES['file']; 
+
+        //Save the track name, genre and location in the database
+        $trackObj = new TestUpload();
+        $trackObj->saveToDb($trackName, "5.23", $genre, "test/document/");
 
         //Get the data from the image file
         $imgName = $_FILES['image']['name'];
