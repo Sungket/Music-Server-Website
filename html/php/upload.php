@@ -2,7 +2,18 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1); // set second param to zero once development finished
 
-    require('Track.php');
+    require('config.php');
+
+    class TestUpload extends Dbh{
+        //run the query to save the track in the database
+        public function saveToDb() {
+            
+        }
+
+        $stmt = $pdo->prepare('INSERT INTO tracks (title, genre)
+            VALUES (?, ?)');
+        $stmt->execute([$trackName, $genre]);
+    }
 
     if (isset($_POST['submit'])) {
         //Get the submitted form data
@@ -10,12 +21,6 @@
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
         $file = $_FILES['file']; 
-
-        //create a new Track object
-        $track = new Track(trackTitle:$trackName, picture:$image, genre:$genre);
-
-        //run the query to save the track in the database
-        $stmt = $pdo->query('INSERT INTO tracks (title, genre, filepath')
 
         //Get the data from the image file
         $imgName = $_FILES['image']['name'];
