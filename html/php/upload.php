@@ -20,7 +20,7 @@
         $trackName = $_POST['title'];
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
-        //$file = $_FILES['file']; 
+        //$file = see below
         
 
 
