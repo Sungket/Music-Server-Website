@@ -1,7 +1,15 @@
 <?php
 
-$dir = "../uploads/";
+class ScanDir {
 
-$a = scandir($dir);
+  public function scan() {
+    $array = scandir("uploads");
+    if (!empty($array)) {
+      foreach ($array as $name) {
+        echo $name;
+      }
+    }
+  }
 
-echo $a;
+}
+

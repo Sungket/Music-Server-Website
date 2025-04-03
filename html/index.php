@@ -45,14 +45,24 @@
         </div>
         <div class="col-6">
           <p>Main</p>
-          <div class="card" style="width: 18rem;">
+          <!-- <div class="card" style="width: 18rem;">
             <img class="card-img-top" src=".../100px180/" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Track title</h5>
               <p class="card-text">The app needs to be able to dynamically add and remove cards</p>
               <a href="#" class="btn btn-primary">Select</a>
             </div>
-          </div>
+          </div> -->
+          <?php
+            $scanObj = new ScanDir();
+            $scanObj->scan();
+            // $array = scandir("uploads");
+            // if (!empty($array)) {
+            //   foreach ($array as $name) {
+            //     echo $name;
+            //   }
+            // }
+          ?>
         </div>
         <div class="col-3">
           <p>Media Player</p>
