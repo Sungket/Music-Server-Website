@@ -2,12 +2,10 @@
 
 class ScanDir {
 
-  public function scan() {
+  public function scan() : ScanDir {
     $array = scandir("uploads");
     if (!empty($array)) {
-      foreach ($array as $name) {
-        echo $name;
-      }
+      
     }
   }
 

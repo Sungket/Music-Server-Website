@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require ("php/scanDirectory.php");
 ?>
 
 
@@ -54,14 +55,10 @@
             </div>
           </div> -->
           <?php
+          //fetch the contents of the uploads folder
             $scanObj = new ScanDir();
             $scanObj->scan();
-            // $array = scandir("uploads");
-            // if (!empty($array)) {
-            //   foreach ($array as $name) {
-            //     echo $name;
-            //   }
-            // }
+            foreach ($)
           ?>
         </div>
         <div class="col-3">
