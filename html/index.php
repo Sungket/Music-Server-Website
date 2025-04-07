@@ -57,8 +57,11 @@
           <?php
           //fetch the contents of the uploads folder
             $scanObj = new ScanDir();
-            $scanObj->scan();
-            foreach ($)
+            $array = $scanObj->scan(); //this is returning an object
+            
+            foreach ($array as $item) {
+             echo "Item:".$item . "\n";
+            }
           ?>
         </div>
         <div class="col-3">
