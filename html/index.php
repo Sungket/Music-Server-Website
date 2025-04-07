@@ -60,7 +60,15 @@
             $array = $scanObj->scan(); //this is returning an object
             
             foreach ($array as $item) {
-             echo "Item:".$item . "\n";
+              echo "Item:".$item . "\n";
+              echo "<div class='card' style='width: 18rem;'>
+                <img class='card-img-top' src='.../100px180/' alt='Card image cap'>
+                <div class='card-body'>
+                  <h5 class='card-title'>Track title</h5>
+                  <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
+                  <a href='#' class='btn btn-primary'>Select</a>
+                </div>
+              </div>";
             }
           ?>
         </div>
