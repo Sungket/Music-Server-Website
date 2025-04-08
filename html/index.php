@@ -62,7 +62,7 @@
             foreach ($array as $item) {
               echo "Item:".$item . "\n";
               echo "<div class='card' style='width: 18rem;'>
-                <img class='card-img-top' src='.../100px180/' alt='Card image cap'>
+                <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
                 <div class='card-body'>
                   <h5 class='card-title'>Track title</h5>
                   <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
