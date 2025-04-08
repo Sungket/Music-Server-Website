@@ -1,5 +1,5 @@
 <?php
-
+//this class should output an array of objects that are created when the files are uploaded
 class ScanDir {
 
   public function scan() : array {

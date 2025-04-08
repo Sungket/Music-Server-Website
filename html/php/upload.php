@@ -15,9 +15,11 @@
         }
     }
 
+    //Data from form submission
     if (isset($_POST['submit'])) {
         //Get the submitted form data
-        $trackName = $_POST['title'];
+        $trackName = preg_replace('/ /i', '_', $_POST['title']);
+        //$trackName = preg_replace('/ /i', )$_POST['title'];
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
         //$file = see below
@@ -56,7 +58,7 @@
 
 
 
-        $fileName = $_FILES['file']['name'];
+        $fileName = $_FILES['file']['name']; //this is only used to extract the file extension
         $fileTmpName = $_FILES['file']['tmp_name'];
         $fileSize = $_FILES['file']['size'];
         $fileError = $_FILES['file']['error'];
@@ -70,7 +72,8 @@
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 10000000) {
-                    $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                    //$fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                    $fileNameNew = $trackName . "." . $fileActualExt;
                     $fileDestination = '../uploads/' . $fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
                     header("Location: ../index.php?uploadsuccess");
