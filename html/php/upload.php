@@ -5,7 +5,7 @@
     require('config.php');
 
 
-    class TestUpload extends Dbh{
+    class TestUpload extends Dbh{ //ignore the error by intelliphense re: Dbh
         //run the query to save the track in the database
         public function saveToDb($trackName, $length, $genre, $filepath) {
             //Use prepared statements to prevent SQL injection
