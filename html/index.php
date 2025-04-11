@@ -1,6 +1,7 @@
 <?php
   session_start();
   require ("php/scanDirectory.php");
+  require ("php/readDB.php");
 ?>
 
 
@@ -31,6 +32,9 @@
             <li class="list-group-item">About</li>
             <li class="list-group-item">Contact</li>
             <?php
+              $readDB = new DBReader();
+              echo $readDB->read();
+
               if (isset($_SESSION["admin"])) {
                 echo"<li class='list-group-item'>
                 <a href='php/logout.php'>Logout</a></li>";

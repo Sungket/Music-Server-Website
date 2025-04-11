@@ -7,11 +7,11 @@
 
     class TestUpload extends Dbh{ //ignore the error by intelliphense re: Dbh
         //run the query to save the track in the database
-        public function saveToDb($trackName, $length, $genre, $filepath) {
+        public function saveToDb($trackName, $genre, $filepath) {
             //Use prepared statements to prevent SQL injection
-            $stmt = $this->connect()->prepare('INSERT INTO tracks (title, length, genre, filepath) 
-            VALUES (?, ?, ?, ?)');
-            $stmt->execute([$trackName, $length, $genre, $filepath]);
+            $stmt = $this->connect()->prepare('INSERT INTO tracks (title, genre, filepath) 
+            VALUES (?, ?, ?)');
+            $stmt->execute([$trackName, $genre, $filepath]);
         }
     }
 

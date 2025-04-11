@@ -3,7 +3,6 @@
 class Track {
 
     public function __construct(private string $trackTitle = "Track",
-        private float $length = 0,
         private $picture = NULL,
         private ?string $genre = NULL,
         private ?string $path = NULL)
@@ -11,10 +10,6 @@ class Track {
 
     public function getTitle() : string {
         return $this->trackTitle;
-    }
-
-    public function getLength() : float {
-        return $this->length;
     }
 
     public function getPicture() {
