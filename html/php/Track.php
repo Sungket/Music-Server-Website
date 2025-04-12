@@ -3,17 +3,12 @@
 class Track {
 
     public function __construct(private string $trackTitle = "Track",
-        private $picture = NULL,
         private ?string $genre = NULL,
         private ?string $path = NULL)
     {}
 
     public function getTitle() : string {
         return $this->trackTitle;
-    }
-
-    public function getPicture() {
-        return $this->picture;
     }
 
     public function getGenre() : string {

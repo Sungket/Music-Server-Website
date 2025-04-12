@@ -7,10 +7,18 @@ require('config.php');
 require('Track.php');
 
 class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
-    public function read() {
+    $tracksArr = [];
+
+    public function read() : array {
         $stmt = $this->connect()->query('SELECT * FROM tracks');
         while($row = $stmt->fetch()) {
-            $track = new Track();
+            $trackName = $row['title'];
+            $genre = $row['genre'];
+            $path = $row['filepath'];
+            $track = new Track($trackName, $genre, $path); //how to pass these objects
+            array_push($tracksArr, $track);
         } 
+        return $tracksArr;
     }
+
 }
