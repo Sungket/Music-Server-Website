@@ -7,7 +7,7 @@ require('config.php');
 require('Track.php');
 
 class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
-    //$tracksArr = [];
+    private $tracksArr = [];
 
     public function read() : array {
         $stmt = $this->connect()->query('SELECT * FROM tracks');
@@ -16,9 +16,9 @@ class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
             $genre = $row['genre'];
             $path = $row['filepath'];
             $track = new Track($trackName, $genre, $path); //how to pass these objects
-            array_push($tracksArr, $track);
+            array_push($this->tracksArr, $track);
         } 
-        return $tracksArr;
+        return $this->tracksArr;
     }
 
 }
