@@ -33,7 +33,7 @@
             <li class="list-group-item">Contact</li>
             <?php
               $readDB = new DBReader();
-              echo $readDB->read();
+              print_r($readDB->read());
 
               if (isset($_SESSION["admin"])) {
                 echo"<li class='list-group-item'>
@@ -45,26 +45,18 @@
                 <a href='php/admin.php'>Admin</a></li>";
               }
             ?>
-
           </ul>
         </div>
         <div class="col-6">
           <p>Main</p>
-          <!-- <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Track title</h5>
-              <p class="card-text">The app needs to be able to dynamically add and remove cards</p>
-              <a href="#" class="btn btn-primary">Select</a>
-            </div>
-          </div> -->
+          
+
           <?php
           //fetch the contents of the uploads folder
             $scanObj = new ScanDir();
-            $array = $scanObj->scan(); //this is returning an object
+            $array = $scanObj->scan(); // fetches the item name and images
             
             foreach ($array as $item) {
-              echo "Item:".$item . "\n";
               echo "<div class='card' style='width: 18rem;'>
                 <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
                 <div class='card-body'>
