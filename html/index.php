@@ -4,7 +4,6 @@
   require ("php/readDB.php");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,9 +31,7 @@
             <li class="list-group-item">About</li>
             <li class="list-group-item">Contact</li>
             <?php
-              $readDB = new DBReader();
-              print_r($readDB->read());
-
+            //logic for admin login button. If logged in, option to logout
               if (isset($_SESSION["admin"])) {
                 echo"<li class='list-group-item'>
                 <a href='php/logout.php'>Logout</a></li>";
@@ -49,9 +46,11 @@
         </div>
         <div class="col-6">
           <p>Main</p>
-          
-
           <?php
+          //read in the contents of the db
+            $readDB = new DBReader();
+            print_r($readDB->read());
+          
           //fetch the contents of the uploads folder
             $scanObj = new ScanDir();
             $array = $scanObj->scan(); // fetches the item name and images
@@ -80,8 +79,5 @@
         </div>
       </div>
     </div>
-
-
   </body>
-
 </html>
