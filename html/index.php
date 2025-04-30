@@ -49,21 +49,23 @@
           <?php
           //read in the contents of the db
             $readDB = new DBReader();
-            print_r($readDB->read());
+            $dbArray = $readDB->read();
           
           //fetch the contents of the uploads folder
             $scanObj = new ScanDir();
             $array = $scanObj->scan(); // fetches the item name and images
-            
+
             foreach ($array as $item) {
-              echo "<div class='card' style='width: 18rem;'>
-                <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
-                <div class='card-body'>
-                  <h5 class='card-title'>Track title</h5>
-                  <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
-                  <a href='#' class='btn btn-primary'>Select</a>
-                </div>
-              </div>";
+              if (substr($item, 0, 1) != ".") {
+                echo "<div class='card' style='width: 18rem;'>
+                  <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
+                  <div class='card-body'>
+                    <h5 class='card-title'>$item</h5>
+                    <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
+                    <a href='#' class='btn btn-primary'>Select</a>
+                  </div>
+                </div>";
+              };
             }
           ?>
         </div>
