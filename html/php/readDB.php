@@ -7,7 +7,7 @@ require('config.php');
 require('Track.php');
 
 class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
-    $tracksArr = [];
+    //$tracksArr = [];
 
     public function read() : array {
         $stmt = $this->connect()->query('SELECT * FROM tracks');
