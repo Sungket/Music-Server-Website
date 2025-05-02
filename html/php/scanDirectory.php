@@ -5,8 +5,14 @@ class ScanDir {
   public function scan() : array {
     $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads";
     $array = scandir($path);
+    $filesArray = [];
     if (!empty($array)) {
-      return $array;
+      foreach ($array as $file) {
+        if (!in_array($file, array(".", ".."))) {
+          $filesArray[] = $file;
+        }
+      }
+      return $filesArray;
     }
     throw new Exception("Directory is empty");
   }
