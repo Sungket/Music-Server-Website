@@ -19,14 +19,10 @@
     if (isset($_POST['submit'])) {
         //Get the submitted form data
         $trackName = preg_replace('/ /i', '_', $_POST['title']);
-        //$trackName = preg_replace('/ /i', )$_POST['title'];
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
-        //$file = see below
+        $file = $_FILES['file'];
         
-
-
-
         //Get the data from the image file
         $imgName = $_FILES['image']['name'];
         $imgTmpName = $_FILES['image']['tmp_name'];
@@ -56,8 +52,6 @@
             echo "Can only upload image format";
         }
 
-
-
         $fileName = $_FILES['file']['name']; //this is only used to extract the file extension
         $fileTmpName = $_FILES['file']['tmp_name'];
         $fileSize = $_FILES['file']['size'];
@@ -72,7 +66,6 @@
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
                 if ($fileSize < 10000000) {
-                    //$fileNameNew = uniqid('', true) . "." . $fileActualExt;
                     $fileNameNew = $trackName . "." . $fileActualExt;
                     $fileDestination = '../uploads/' . $fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
@@ -90,9 +83,9 @@
         echo "something went wrong";
     }
 
-    $file = $fileDestination;
+    $fileLocation = $fileDestination;
 
     //Save the track name, genre and location in the database
     $trackObj = new TestUpload();
-    $trackObj->saveToDb($trackName, "5.23", $genre, $file);
+    $trackObj->saveToDb($trackName, $genre, $fileLocation);
 ?>
