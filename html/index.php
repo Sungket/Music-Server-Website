@@ -56,7 +56,7 @@
             $array = $scanObj->scan(); // fetches the item name and images
 
             foreach ($array as $item) {
-              if (substr($item, 0, 1) != ".") {
+              if (strpos($item, ".mp3")){
                 echo "<div class='card' style='width: 18rem;'>
                   <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
                   <div class='card-body'>
@@ -65,7 +65,7 @@
                     <a href='#' class='btn btn-primary'>Select</a>
                   </div>
                 </div>";
-              };
+              }
             }
           ?>
         </div>
