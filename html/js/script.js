@@ -3,4 +3,9 @@ $(document).ready(function() {
 
 })
 
-let playBtn = document.querySelector("");
+let curr_track = document.createElement("audio");
+
+function playTrack() {
+    //play the loaded track
+    
+}
