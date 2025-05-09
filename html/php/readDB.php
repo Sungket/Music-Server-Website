@@ -14,8 +14,9 @@ class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
         while($row = $stmt->fetch()) {
             $trackName = $row['title'];
             $genre = $row['genre'];
-            $path = $row['filepath'];
-            $track = new Track($trackName, $genre, $path); //how to pass these objects
+            $filepath = $row['filepath'];
+            $imgPath = $row['imagepath'];
+            $track = new Track($trackName, $genre, $filepath, $imgPath);
             array_push($this->tracksArr, $track);
         } 
         return $this->tracksArr;

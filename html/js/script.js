@@ -7,5 +7,5 @@ let curr_track = document.createElement("audio");
 
 function playTrack() {
     //play the loaded track
-    
+    alert("this works!");
 }
