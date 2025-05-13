@@ -1,16 +1,15 @@
-$(document).ready(function() {
-    // populate the front-end by reading in the uploads directory
-
-})
-
-let curr_track = document.createElement("audio");
-
-let playTrack = document.getElementById("playTrack");
+//let playTrack = document.getElementById("playTrack");
+//let curr_track = document.createElement("audio");
+//curr_track.setAttribute("src", "uploads/Hello_World.mp3");
+//curr_track.src = "../uploads/Hello_World.mp3";
+//curr_track.load();
 
 function playTrack() {
     //play the loaded track
-    let audio = new Audio("../uploads/Hello_World.mp3");
-    audio.play();
+    const curr_track = new Audio("../uploads/Hello_World.mp3");
+    curr_track.play();
 }
 
-playTrack.addEventListener("click", playTrack);
+
+
+//playTrack.addEventListener("click", playTrack);
