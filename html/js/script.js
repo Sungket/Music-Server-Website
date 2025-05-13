@@ -5,7 +5,12 @@ $(document).ready(function() {
 
 let curr_track = document.createElement("audio");
 
+let playTrack = document.getElementById("playTrack");
+
 function playTrack() {
     //play the loaded track
-    alert("this works!");
+    let audio = new Audio("../uploads/Hello_World.mp3");
+    audio.play();
 }
+
+playTrack.addEventListener("click", playTrack);

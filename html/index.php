@@ -74,7 +74,7 @@
           <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary">Rewind</button>
             <button type="button" class="btn btn-secondary">Pause</button>
-            <button type="button" class="btn btn-secondary" onclick="playTrack()">Play</button>
+            <button type="button" class="btn btn-secondary" id="playTrack" onclick="playTrack()">Play</button>
             <button type="button" class="btn btn-secondary">Stop</button>
             <button type="button" class="btn btn-secondary">FF</button>
           </div>
