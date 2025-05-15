@@ -1,5 +1,6 @@
 function playTrack() {
     //play the loaded track
-    const curr_track = new Audio("../uploads/Hello_World.mp3");
+    document
+    const curr_track = new Audio("");
     curr_track.play();
 }

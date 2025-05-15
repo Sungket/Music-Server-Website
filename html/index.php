@@ -57,12 +57,14 @@
 
             foreach ($dbArray as $track) { //reads in the array of Track objects which is data from the database.
               $title = $track->getTitle();
+              $imagePath = $track->getImagePath();
+              $path = $track->getPath();
               echo "<div class='card' style='width: 18rem;'>
-              <img class='card-img-top' src='../uploads/67ed41b9381d53.65856354.jpg' alt='Card image cap'>
+              <img class='card-img-top' src='$imagePath' alt='Card image cap'>
               <div class='card-body'>
                 <h5 class='card-title'>$title</h5>
                 <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
-                <a href='#' class='btn btn-primary'>Select</a>
+                <a class='btn btn-primary' onclick='playTrack()'>Play</a>
               </div>
             </div>";
             }
