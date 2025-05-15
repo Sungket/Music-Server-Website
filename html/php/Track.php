@@ -4,7 +4,8 @@ class Track {
 
     public function __construct(private string $trackTitle = "Track",
         private ?string $genre = NULL,
-        private ?string $path = NULL)
+        private ?string $path = NULL,
+        private ?string $imagePath = NULL)
     {}
 
     public function getTitle() : string {
@@ -17,6 +18,10 @@ class Track {
 
     public function getPath() : string {
         return $this->path;
+    }
+
+    public function getImagePath() : string {
+        return $this->imagePath;
     }
 
     public function setTitle($trackTitle) : void {

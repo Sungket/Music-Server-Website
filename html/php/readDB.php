@@ -6,6 +6,8 @@ ini_set('display_errors', 1); // set second param to zero once development finis
 require('config.php');
 require('Track.php');
 
+//header('Content-Type: application/json; charset=UTF-8');
+
 class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
     private $tracksArr = [];
 
@@ -22,4 +24,5 @@ class DBReader extends Dbh { //ignore the error by intelliphense re: Dbh
         return $this->tracksArr;
     }
 
+    //echo json_encode($tracksArr);
 }
