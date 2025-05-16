@@ -59,14 +59,12 @@
               $title = $track->getTitle();
               $imagePath = $track->getImagePath();
               $path = $track->getPath();
-              $pathJSON = json_encode($path);
-              echo $pathJSON;
               echo "<div class='card' style='width: 18rem;'>
               <img class='card-img-top' src='$imagePath' alt='Card image cap'>
               <div class='card-body'>
                 <h5 class='card-title'>$title</h5>
                 <p class='card-text'>The app needs to be able to dynamically add and remove cards</p>
-                <a class='btn btn-primary' onclick='playTrack()'>Play</a>
+                <a class='btn btn-primary' onclick='playTrack($path)'>Play</a>
               </div>
             </div>";
             }
