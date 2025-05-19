@@ -58,7 +58,8 @@
             foreach ($dbArray as $track) { //reads in the array of Track objects which is data from the database.
               $title = $track->getTitle();
               $imagePath = $track->getImagePath();
-              $path = $track->getPath();
+              $path = json_encode($track->getPath());
+              //$encPath= json_encode($path);
               echo "<div class='card' style='width: 18rem;'>
               <img class='card-img-top' src='$imagePath' alt='Card image cap'>
               <div class='card-body'>
