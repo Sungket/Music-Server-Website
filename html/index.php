@@ -59,7 +59,6 @@
               $title = $track->getTitle();
               $imagePath = $track->getImagePath();
               $path = json_encode($track->getPath());
-              //$encPath= json_encode($path);
               echo "<div class='card' style='width: 18rem;'>
               <img class='card-img-top' src='$imagePath' alt='Card image cap'>
               <div class='card-body'>
