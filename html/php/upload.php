@@ -22,6 +22,9 @@
         $genre = $_POST['genre'];
         $image = $_FILES['image'];
         $file = $_FILES['file'];
+
+        print_r($file);
+        //echo "<script type='text/javascript'>alert(print_r($file));</script>";
         
         //Get the data from the image file
         $imgName = $_FILES['image']['name'];
@@ -74,12 +77,14 @@
                     echo "File is too large";
                 }
             } else {
-                echo "There was an error uploading your file";
+                echo "There was an error uploading your audio file";
             }
         } else {
             echo "Can only upload .mp3 format";
         }
     } else {
+        $file = $_FILES['file']; //delete these two lines once finished debugging
+        print_r($file);
         echo "something went wrong";
     }
 
