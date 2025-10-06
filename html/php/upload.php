@@ -88,9 +88,11 @@
         echo "something went wrong";
     }
 
-    $fileLocation = $fileDestination;
+    //$fileLocation = $fileDestination;
+    $fileLocation = 'uploads/' . $fileNameNew;
+    $imgPath = 'uploads/' . $imgDestination;
 
     //Save the track name, genre and location in the database
     $trackObj = new TestUpload();
-    $trackObj->saveToDb($trackName, $genre, $fileLocation, $imgDestination);
+    $trackObj->saveToDb($trackName, $genre, $fileLocation, $imgPath);
 ?>
