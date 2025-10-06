@@ -3,7 +3,7 @@
 class ScanDir {
 
   public function scan() : array {
-    $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads";
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/html/uploads/";
     $array = scandir($path);
     $filesArray = [];
     if (!empty($array)) {
